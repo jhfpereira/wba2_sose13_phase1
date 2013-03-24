@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<registrierung>
+	<gruppenleiter>
+		<vorname>Jorge</vorname>
+		<nachname>Pereira</nachname>
+		<email>joe@island.lost</email>
+		<geburtsdatum>1960-08-01</geburtsdatum>
+		<erfahrung>Amateur</erfahrung>
+		<schlagzeug>vorhanden</schlagzeug>
+		<anmerkung></anmerkung>
+	</gruppenleiter>
+	<personen>
+		<person>
+			<vorname>John</vorname>
+			<nachname>Doe</nachname>
+			<email>john@island.lost</email>
+			<geburtsdatum>1973-08-02</geburtsdatum>
+			<erfahrung>Amateur</erfahrung>
+			<schlagzeug>nicht vorhanden</schlagzeug>
+			<anmerkung></anmerkung>
+		<person>
+		<person>
+			<vorname>Jane</vorname>
+			<nachname>Doe</nachname>
+			<email>jane@island.lost</email>
+			<geburtsdatum>1974-08-10</geburtsdatum>
+			<erfahrung>Amateur</erfahrung>
+			<schlagzeug>nicht vorhanden</schlagzeug>
+			<anmerkung></anmerkung>
+		<person>
+	</personen>
+</registrierung>

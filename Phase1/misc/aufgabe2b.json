@@ -1,0 +1,30 @@
+{
+	"gruppenleiter": {
+		"vorname": "Jorge",
+		"nachname": "Pereira",
+		"email": "joe@island.lost",
+		"geburtsdatum": "1960-08-01",
+		"erfahrung": "Amateur",
+		"schlagzeug": "vorhanden",
+		"anmerkung": ""
+	},
+	"personen":
+		[{
+			"vorname": "John",
+			"nachname": "Doe",
+			"email": "john@island.lost",
+			"geburtsdatum": "1973-08-02",
+			"erfahrung": "Amateur",
+			"schlagzeug": "nicht vorhanden",
+			"anmerkung": ""
+		},
+		{
+			"vorname": "Jane",
+			"nachname": "Doe",
+			"email": "jane@island.lost",
+			"geburtsdatum": "1974-08-10",
+			"erfahrung": "Amateur",
+			"schlagzeug": "nicht vorhanden",
+			"anmerkung": ""
+		}]
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rezept>
+    <rezeptname>Lenchen's Schokoladenkuchen</rezeptname>
+    <fotos>
+        <foto>
+            <benutzername>Gartenliebe</benutzername>
+            <adresse>http://www.url.zum/foto1.jpg</adresse>
+        </foto>
+        <foto>
+            <benutzername>Gartenzwerg123</benutzername>
+            <adresse>http://www.url.zum/foto2.jpg</adresse>
+        </foto>
+        <foto>
+            <benutzername>Honigliebe19</benutzername>
+            <adresse>http://www.url.zum/foto3.jpg</adresse>
+        </foto>
+        <foto>
+            <adresse>http://www.url.zum/foto4.jpg</adresse>
+        </foto>
+    </fotos>
+    <arbeitszeit>60</arbeitszeit>
+    <schwierigkeitsgrad>normal</schwierigkeitsgrad>
+    <brennwert>295</brennwert>
+    <portionen>16</portionen>
+    <zutaten>
+        <zutat>
+            <name>Butter</name>
+            <einheit>g</einheit>
+            <menge>200</menge>
+        </zutat>
+        <zutat>
+            <name>Zucker</name>
+            <einheit>g</einheit>
+            <menge>200</menge>
+        </zutat>
+        <zutat>
+            <name>Schokolade, Blockschokolade</name>
+            <einheit>g</einheit>
+            <menge>200</menge>
+        </zutat>
+        <zutat>
+            <name>Mehl</name>
+            <einheit>g</einheit>
+            <menge>120</menge>
+        </zutat>
+        <zutat>
+            <name>Backpulver</name>
+            <einheit>TL</einheit>
+            <menge>0.5</menge>
+        </zutat>
+        <zutat>
+            <name>Vanillezucker</name>
+            <einheit>Pkt.</einheit>
+            <menge>1</menge>
+        </zutat>
+        <zutat>
+            <name>Eier</name>
+            <menge>4</menge>
+        </zutat>
+    </zutaten>
+    <zubereitung>Butter und Schokolade im Wasserbad schmelzen. Eier...</zubereitung>
+    <kommentare>
+        <kommentar>
+            <benutzername>swieselchen90</benutzername>
+            <geschrieben_am>2002-02-07T18:49:00.000+01:00</geschrieben_am>
+            <nachricht>Habe....</nachricht>
+        </kommentar>
+        <kommentar>
+            <benutzername>gartenwiesel</benutzername>
+            <geschrieben_am>2002-02-10T19:20:45.000+01:00</geschrieben_am>
+            <nachricht>Ist...</nachricht>
+        </kommentar>
+    </kommentare>
+</rezept>
