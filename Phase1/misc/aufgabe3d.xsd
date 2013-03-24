@@ -1,101 +1,101 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-	<xsd:annotation>
-	    <xsd:documentation xml:lang="DE">
-	        Rezeptesammlung
-	        Jorge H. F. Pereira
-	        FH-Köln - Campsus GM / Web-basierte Anwendungen 2 / 2013
-	    </xsd:documentation>
-	</xsd:annotation>
+    <xsd:annotation>
+        <xsd:documentation xml:lang="DE">
+            Rezeptesammlung
+            Jorge H. F. Pereira
+            FH-Köln - Campsus GM / Web-basierte Anwendungen 2 / 2013
+        </xsd:documentation>
+    </xsd:annotation>
 
-	<xsd:element name="rezepte" type="rezepteType"/>
-	
-	<xsd:complexType name="rezepteType">
-	    <xsd:sequence>
-	    	<xsd:element name="rezept" minOccurs="0" maxOccurs="unbounded">
-	        	<xsd:complexType>
-	        		<xsd:sequence>
-	        				<xsd:element name="rezeptname" type="xsd:string"/>
-	        				<xsd:element name="fotos">
-	        					<xsd:complexType>
-									<xsd:sequence>
-										<xsd:element name="foto" minOccurs="0" maxOccurs="unbounded">
-											<xsd:complexType>
-												<xsd:sequence>
-													<xsd:element name="benutzername" type="xsd:string"/>
-													<xsd:element name="adresse" type="xsd:anyURI"/>
-												</xsd:sequence>
-											</xsd:complexType>
-										</xsd:element>
-									</xsd:sequence>
-								</xsd:complexType>
-	        				</xsd:element>
-	        				<xsd:element name="arbeitszeit" type="xsd:positiveInteger" minOccurs="0" maxOccurs="1"/>
-	        				<xsd:element name="kochbackzeit" type="xsd:positiveInteger" minOccurs="0" maxOccurs="1"/>
-	        				<xsd:element name="ruhezeit" type="xsd:positiveInteger" minOccurs="0" maxOccurs="1"/>
-	        				<xsd:element name="schwierigkeitsgrad">
-	        					<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="simpel"/>
-										<xsd:enumeration value="normal"/>
-										<xsd:enumeration value="schwer"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-	        				</xsd:element>
-	        				<xsd:element name="brennwert">
-	        					<xsd:simpleType>
-									<xsd:union>
-										<xsd:simpleType>
-											<xsd:restriction base="xsd:positiveInteger"/>
-										</xsd:simpleType>
-										<xsd:simpleType>
-											<xsd:restriction base="xsd:string">
-												<xsd:enumeration value="keine Angabe"/>
-											</xsd:restriction>
-										</xsd:simpleType>
-									</xsd:union>
-								</xsd:simpleType>
-	        				</xsd:element>
-	        				<xsd:element name="portionen" type="xsd:positiveInteger"/>
-	        				<xsd:element name="zutaten">
-	        					<xsd:complexType>
-									<xsd:sequence>
-										<xsd:element name="zutat" minOccurs="1" maxOccurs="unbounded">
-											<xsd:complexType>
-												<xsd:sequence>
-													<xsd:element name="name" type="xsd:string"/>
-													<xsd:element name="einheit" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-													<xsd:element name="menge" minOccurs="0" maxOccurs="1">
-														<xsd:simpleType>
-															<xsd:restriction base="xsd:decimal">
-																<xsd:minExclusive value="0"/>
-															</xsd:restriction>
-														</xsd:simpleType>
-													</xsd:element>
-												</xsd:sequence>
-											</xsd:complexType>
-										</xsd:element>
-									</xsd:sequence>
-								</xsd:complexType>
-	        				</xsd:element>
-	        				<xsd:element name="zubereitung" type="xsd:string"/>
-	        				<xsd:element name="kommentare">
-	        					<xsd:complexType>
-									<xsd:sequence>
-										<xsd:element name="kommentar" minOccurs="0" maxOccurs="unbounded">
-											<xsd:complexType>
-												<xsd:sequence>
-													<xsd:element name="benutzername" type="xsd:string"/>
-													<xsd:element name="geschrieben_am" type="xsd:dateTime"/>
-													<xsd:element name="nachricht" type="xsd:string"/>
-												</xsd:sequence>
-											</xsd:complexType>
-										</xsd:element>
-									</xsd:sequence>
-								</xsd:complexType>
-	        				</xsd:element>
-	        		</xsd:sequence>
-	    		</xsd:complexType>
-	    	</xsd:element>
-	    </xsd:sequence>
-	</xsd:complexType>
+    <xsd:element name="rezepte" type="rezepteType"/>
+    
+    <xsd:complexType name="rezepteType">
+        <xsd:sequence>
+            <xsd:element name="rezept" minOccurs="0" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                            <xsd:element name="rezeptname" type="xsd:string"/>
+                            <xsd:element name="fotos">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="foto" minOccurs="0" maxOccurs="unbounded">
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="benutzername" type="xsd:string"/>
+                                                    <xsd:element name="adresse" type="xsd:anyURI"/>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="arbeitszeit" type="xsd:positiveInteger" minOccurs="0" maxOccurs="1"/>
+                            <xsd:element name="kochbackzeit" type="xsd:positiveInteger" minOccurs="0" maxOccurs="1"/>
+                            <xsd:element name="ruhezeit" type="xsd:positiveInteger" minOccurs="0" maxOccurs="1"/>
+                            <xsd:element name="schwierigkeitsgrad">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:enumeration value="simpel"/>
+                                        <xsd:enumeration value="normal"/>
+                                        <xsd:enumeration value="schwer"/>
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element name="brennwert">
+                                <xsd:simpleType>
+                                    <xsd:union>
+                                        <xsd:simpleType>
+                                            <xsd:restriction base="xsd:positiveInteger"/>
+                                        </xsd:simpleType>
+                                        <xsd:simpleType>
+                                            <xsd:restriction base="xsd:string">
+                                                <xsd:enumeration value="keine Angabe"/>
+                                            </xsd:restriction>
+                                        </xsd:simpleType>
+                                    </xsd:union>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element name="portionen" type="xsd:positiveInteger"/>
+                            <xsd:element name="zutaten">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="zutat" minOccurs="1" maxOccurs="unbounded">
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="name" type="xsd:string"/>
+                                                    <xsd:element name="einheit" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                                                    <xsd:element name="menge" minOccurs="0" maxOccurs="1">
+                                                        <xsd:simpleType>
+                                                            <xsd:restriction base="xsd:decimal">
+                                                                <xsd:minExclusive value="0"/>
+                                                            </xsd:restriction>
+                                                        </xsd:simpleType>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="zubereitung" type="xsd:string"/>
+                            <xsd:element name="kommentare">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="kommentar" minOccurs="0" maxOccurs="unbounded">
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="benutzername" type="xsd:string"/>
+                                                    <xsd:element name="geschrieben_am" type="xsd:dateTime"/>
+                                                    <xsd:element name="nachricht" type="xsd:string"/>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
 </xsd:schema>
