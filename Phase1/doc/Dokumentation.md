@@ -7,16 +7,16 @@ Jorge H. F. Pereira
 
 ##Aufgaben
 ###Aufgabe 1
-*Wohlgeformtheit
+**Wohlgeformtheit**  
 Der Aufbau des XML-Dokuments ist entscheident. Elemente sollten geschickt in anderen Elementen verschachtelt werden so, dass ein semantisch korrekter Aufbau entsteht.
 Als Beispiel sei eine Liste von Personen zu nennen. Es kann ein Element mit dem Typ/Namen "PersonsList" geben, welches als Wrapper-Element fungiert und mehrere Kindelemte vom Typ/Namen "Person" führt.
 Dabei ist wichtig festzulegen, dass nur Elemente vom Typ/Namen "Person" als Kindelemente akzeptiert werden, da sonst bei anderen Elemententypen die Bedeutung des Wrapper-Elements verloren geht. Nämlich die, dass das Element eine Liste eines bestimmten Typs ist.
 Als weitere Beispiel für Wohlgeformtheit ist die Existenz von nur einem Wurzelknoten.
 
-*Validität
+**Validität**  
 Das XML-Dokument ist syntaktisch korrekt aufgebaut und folgt zuvor festgelegten Regeln und Definitionen. Dazu wird das Dokument auf die von einer Grammatik beschriebenen Form überprüft.
 
-*Namespaces
+**Namespaces**  
 Namespaces werden eingesetzt, um eventuelle Namenskonflikte zu vermeiden, wenn man mit XML-Dokumenten unterschiedlicher Herkunft arbeitet bzw. diese verarbeitet.
 Jedem Element kann dabei ein "prefix" gegeben werden, klar getrennt mit einem Doppelpunkt.
 
