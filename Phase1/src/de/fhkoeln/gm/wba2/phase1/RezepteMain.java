@@ -187,7 +187,7 @@ public class RezepteMain {
                         System.out.println("Geben sie bitte die Nummer des Rezepts an: ");
                         rezeptauswahl = in.nextInt();
             
-                        if(rezeptauswahl < 0 || rezeptauswahl > list.size()) {
+                        if(rezeptauswahl <= 0 || rezeptauswahl > list.size()) {
                             System.err.println("Es gibt kein Rezept mit dieser Nummer!");
                             System.out.println();
                         }
@@ -195,7 +195,7 @@ public class RezepteMain {
                             listeRezept(list.get(rezeptauswahl-1));
                         }
                     }
-                    while(rezeptauswahl < 0 || rezeptauswahl > list.size());
+                    while(rezeptauswahl <= 0 || rezeptauswahl > list.size());
             
                     break;
                 case 3:
@@ -204,7 +204,7 @@ public class RezepteMain {
                         System.out.println("Geben sie bitte die Nummer des Rezepts an: ");
                         rezeptauswahl = in.nextInt();
             
-                        if(rezeptauswahl < 0 || rezeptauswahl > list.size()) {
+                        if(rezeptauswahl <= 0 || rezeptauswahl > list.size()) {
                             System.err.println("Es gibt kein Rezept mit dieser Nummer!");
                             System.out.println();
                         }
@@ -218,7 +218,7 @@ public class RezepteMain {
                             m.marshal(new ObjectFactory().createRezepte(rezepte), new File(filename));
                         }
                     }
-                    while(rezeptauswahl < 0 || rezeptauswahl > list.size());
+                    while(rezeptauswahl <= 0 || rezeptauswahl > list.size());
             
                     break;
                 default:
