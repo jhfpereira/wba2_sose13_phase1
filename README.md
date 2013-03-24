@@ -1,2 +1,2 @@
-wba2_sose13_phase1
+FH-Köln Campus GM / WBA2 / Phase 1
 ==================
