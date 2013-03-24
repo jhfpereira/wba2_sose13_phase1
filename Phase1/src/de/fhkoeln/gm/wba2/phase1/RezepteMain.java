@@ -108,7 +108,7 @@ public class RezepteMain {
     }
     
     
-    public static void kommentiereRezept(ArrayList<RezepteType.Rezept.Kommentare.Kommentar> kommentarliste) throws DatatypeConfigurationException {
+    public static void kommentiereRezept(ArrayList<RezepteType.Rezept.Kommentare.Kommentar> kommentarliste) {
         System.out.println();
         System.out.print("Name: ");
         String benutzername = in.next();
@@ -121,8 +121,12 @@ public class RezepteMain {
 
         GregorianCalendar c = new GregorianCalendar();
         c.setTime(new Date());
-        XMLGregorianCalendar currGregCal = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
-        kommi.setGeschriebenAm(currGregCal);
+
+        XMLGregorianCalendar currGregCal;
+        try {
+            currGregCal = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
+            kommi.setGeschriebenAm(currGregCal);
+        } catch (DatatypeConfigurationException e) {}
 
         kommi.setNachricht(nachricht);
 
@@ -130,13 +134,13 @@ public class RezepteMain {
     }
     
     
-    public static void main(String[] args) throws JAXBException, FileNotFoundException, DatatypeConfigurationException {
+    public static void main(String[] args) throws JAXBException, FileNotFoundException {
         
         String filename = DEFAULT_XML;
         
-        if(args.length == 2) {
-                // Dateiname kann als erster Parameter mitgegeben werden
-                filename = args[1];
+        if(args.length == 1) {
+            // Dateiname kann als erster Parameter mitgegeben werden
+            filename = args[0];
         }
         
 
