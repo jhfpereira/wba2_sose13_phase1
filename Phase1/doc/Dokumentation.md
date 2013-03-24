@@ -205,11 +205,11 @@ Speziell bei der Mengenangabe einer Zutat, könnte man für das Element der Zuta
 
 Alle Daten sind grundsätzlich auf schon vordefinierte simple-types abbildbar. 
 
-string => Rezeptname, Zubereitungsanweisung, Kommentartext, Benutzername, Zutatenname, Einheit
-dateTime => Verfassungszeitpunkt (Kommentare)
-positiveInteger => Arbeitszeit, Koch-Back-Zeit, Ruhezeit, Brennwert und Portionen
-anyURI => Grafikadressen (Fotos u. Avatare) 
-decimal => Zutatenmenge
+**string** => Rezeptname, Zubereitungsanweisung, Kommentartext, Benutzername, Zutatenname, Einheit  
+**dateTime** => Verfassungszeitpunkt (Kommentare)  
+**positiveInteger** => Arbeitszeit, Koch-Back-Zeit, Ruhezeit, Brennwert und Portionen  
+**anyURI** => Grafikadressen (Fotos u. Avatare)  
+**decimal** => Zutatenmenge  
 
 Bezüglich der Angaben über die Arbeitszeit, Koch-Back-Zeit, Ruhezeit und der Brennwert muss zudem beachtet werden, dass sie nicht unbedingt angegeben sein müssen.
 
