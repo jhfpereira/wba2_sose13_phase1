@@ -235,7 +235,7 @@ siehe  - misc/aufgabe3d.xsd -
 Anhand des XML-Schemas wurde eine Klasse "RezeptType" generiert.
 Hätte man die verschiedenen verschachtelten complex-types ausgelagert und mit einem Namen referenziert, hätte "xjc" mehrere Klassen generiert, nämlich für jeden complex-type eine.
 Das hat er in diesem Fall nicht getan, da sich die complex-types verschachtelt im Oberdatentyp "rezeptType" befinden. Somit sind diese Klassen als statische Unterklassen der "RezeptType"-Klasse zu finden.
-Der Vorteil an dieser herangehensweise bzw. der Strukturierungsart des XML-Schemas liegt darin, dass nur eine Klassen generiert wird (die Klasse "ObjectFactory" nicht mitgezählt) und somit ein sauberer und übersichtlicher src-Tree gegeben ist.
+Der Vorteil an dieser herangehensweise bzw. der Strukturierungsart des XML-Schemas liegt darin, dass nur eine Klasse generiert wird (die Klasse "ObjectFactory" nicht mitgezählt) und somit ein sauberer und übersichtlicher src-Tree gegeben ist.
 
 
 
