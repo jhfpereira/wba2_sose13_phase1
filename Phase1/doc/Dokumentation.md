@@ -208,7 +208,7 @@ Alle Daten sind grundsätzlich auf schon vordefinierte simple-types abbildbar.
 **string** => Rezeptname, Zubereitungsanweisung, Kommentartext, Benutzername, Zutatenname, Einheit  
 **dateTime** => Verfassungszeitpunkt (Kommentare)  
 **positiveInteger** => Arbeitszeit, Koch-Back-Zeit, Ruhezeit, Brennwert und Portionen  
-**anyURI** => Grafikadressen (Fotos u. Avatare)  
+**anyURI** => Grafikadressen (Fotos)  
 **decimal** => Zutatenmenge  
 
 Bezüglich der Angaben über die Arbeitszeit, Koch-Back-Zeit, Ruhezeit und der Brennwert muss zudem beachtet werden, dass sie nicht unbedingt angegeben sein müssen.
@@ -218,7 +218,7 @@ Auf complex-types müssen zuletzt die Elemente abgebildet werden, die als Contai
 Dazu gehört die Fotoliste, die Zutatenliste und die Kommentarliste.
 Zusätzlich muss, durch die Vorgabe mehrere Rezepte speichern zu können, eine Rezeptliste berücksichtigt werden. Da diesem Element kein weiteres Element übergeordnet ist, kann es als Wurzelelement in Betracht gezogen werden. 
 
-Als eine Restriktion muss definiert werden, dass eine Angabe einer negativen Zutatenmengen nicht erlaubt ist. Da eine Zutatenmenge nicht immer ganzzahlig sein muss, wurde sich bewusst für den simple-type "decimal" entschieden. Dieser erlaubt aber negative Werte und muss deshalb nur auf positive Werte begrenzt werden.
+Als eine Restriktion muss definiert werden, dass die Angabe einer negativen Zutatenmengen nicht erlaubt ist. Da die Zutatenmenge nicht immer ganzzahlig sein muss, wurde sich bewusst für den simple-type "decimal" entschieden. Dieser erlaubt aber negative Werte und muss deshalb auf positive Werte begrenzt werden.
 Für die Schwierigkeitsangabe muss ebenfalls eine Restriktion definiert werden, da nur die drei Angaben "simpel", "normal" und "schwer" erlaubt sind.
 
 
@@ -234,7 +234,7 @@ siehe  - misc/aufgabe3d.xsd -
 **a)**
 Anhand des XML-Schemas wurde eine Klasse "RezeptType" generiert.
 Hätte man die verschiedenen verschachtelten complex-types ausgelagert und mit einem Namen referenziert, hätte "xjc" mehrere Klassen generiert, nämlich für jeden complex-type eine.
-Das hat er in diesem Fall nicht getan, da sich die complex-types verschachtelt im Oberdatentyp "rezeptType" befinden. Somit sind diese Klassen als statische Unterklassen der "RezeptType"-Klasse zu finden.
+Das hat er in diesem Fall nicht getan, da sich die complex-types verschachtelt im Oberdatentyp "rezeptType" befinden. Somit sind diese Klassen als statische verschachtelte Klassen (static nested classes) der "RezeptType"-Klasse zu finden.
 Der Vorteil an dieser herangehensweise bzw. der Strukturierungsart des XML-Schemas liegt darin, dass nur eine Klasse generiert wird (die Klasse "ObjectFactory" nicht mitgezählt) und somit ein sauberer und übersichtlicher src-Tree gegeben ist.
 
 
