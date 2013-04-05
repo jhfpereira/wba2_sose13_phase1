@@ -236,6 +236,8 @@ Anhand des XML-Schemas wurde eine Klasse "RezeptType" generiert.
 Hätte man die verschiedenen verschachtelten complex-types ausgelagert und mit einem Namen referenziert, hätte "xjc" mehrere Klassen generiert, nämlich für jeden complex-type eine.
 Das hat er in diesem Fall nicht getan, da sich die complex-types verschachtelt im Oberdatentyp "rezeptType" befinden. Somit sind diese Klassen als statische verschachtelte Klassen (static nested classes) der "RezeptType"-Klasse zu finden.
 Der Vorteil an dieser herangehensweise bzw. der Strukturierungsart des XML-Schemas liegt darin, dass nur eine Klasse generiert wird (die Klasse "ObjectFactory" nicht mitgezählt) und somit ein sauberer und übersichtlicher src-Tree gegeben ist.
+Für diese Vorgehensweise gibt es aber auch ein Nachteil. Das XML-Schema ist im Nachhinein schwieriger zu pflegen bzw. zu erweitern. Man sollte also schon vor der Datenmodulierung abschätzen, welche Strukturierungsart sich im gegebenen Fall eher anbietet.
+Man sollte zudem darauf achten, dass nicht beide Strukturierungsarten gemischt angewandt werden, sofern nicht anders möglich.
 
 
 
