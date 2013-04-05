@@ -243,12 +243,12 @@ Man sollte zudem darauf achten, dass nicht beide Strukturierungsarten gemischt a
 
 **b)**
 
-siehe - [src/RezeptMain.java](https://github.com/jhfpereira/wba2_sose13_phase1/blob/master/Phase1/src/RezeptMain.java "RezeptMain.java") -
+siehe - [src/RezeptMain.java](https://github.com/jhfpereira/wba2_sose13_phase1/blob/master/Phase1/src/de/fhkoeln/gm/wba2/phase1/RezepteMain.java "RezeptMain.java") -
 
 
 **c)**
 
-siehe - [src/RezeptMain.java](https://github.com/jhfpereira/wba2_sose13_phase1/blob/master/Phase1/src/RezeptMain.java "RezeptMain.java") -
+siehe - [src/RezeptMain.java](https://github.com/jhfpereira/wba2_sose13_phase1/blob/master/Phase1/src/de/fhkoeln/gm/wba2/phase1/RezepteMain.java "RezeptMain.java") -
 
 
 
