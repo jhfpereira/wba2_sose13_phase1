@@ -224,8 +224,8 @@ Für die Schwierigkeitsangabe muss ebenfalls eine Restriktion definiert werden, 
 
 **d)**
 
-siehe  - misc/aufgabe3d.xsd -
-	u. - misc/aufgabe3d.xml -
+siehe  - [misc/aufgabe3d.xsd](https://github.com/jhfpereira/wba2_sose13_phase1/blob/master/Phase1/misc/aufgabe3d.xsd "XML Schema Definition") -
+	u. - [misc/aufgabe3d.xsd](https://github.com/jhfpereira/wba2_sose13_phase1/blob/master/Phase1/misc/aufgabe3d.xml "XML Dokument - Rezepte") -
 
 
 
@@ -241,12 +241,12 @@ Der Vorteil an dieser herangehensweise bzw. der Strukturierungsart des XML-Schem
 
 **b)**
 
-siehe - src/RezeptMain.java -
+siehe - [src/RezeptMain.java](https://github.com/jhfpereira/wba2_sose13_phase1/blob/master/Phase1/src/RezeptMain.java "RezeptMain.java") -
 
 
 **c)**
 
-siehe - src/RezeptMain.java -
+siehe - [src/RezeptMain.java](https://github.com/jhfpereira/wba2_sose13_phase1/blob/master/Phase1/src/RezeptMain.java "RezeptMain.java") -
 
 
 
