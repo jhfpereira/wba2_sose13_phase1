@@ -2,7 +2,7 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.6 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2013.03.24 um 03:54:07 AM GMT+01:00 
+// Generiert: 2013.04.08 um 04:41:12 PM GMT+01:00 
 //
 
 
@@ -127,6 +127,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                                     &lt;sequence>
  *                                       &lt;element name="benutzername" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *                                       &lt;element name="avatar" type="{http://www.w3.org/2001/XMLSchema}anyURI"/>
  *                                       &lt;element name="geschrieben_am" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
  *                                       &lt;element name="nachricht" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *                                     &lt;/sequence>
@@ -292,6 +293,7 @@ public class RezepteType {
      *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *                           &lt;sequence>
      *                             &lt;element name="benutzername" type="{http://www.w3.org/2001/XMLSchema}string"/>
+     *                             &lt;element name="avatar" type="{http://www.w3.org/2001/XMLSchema}anyURI"/>
      *                             &lt;element name="geschrieben_am" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
      *                             &lt;element name="nachricht" type="{http://www.w3.org/2001/XMLSchema}string"/>
      *                           &lt;/sequence>
@@ -787,6 +789,7 @@ public class RezepteType {
          *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
          *                 &lt;sequence>
          *                   &lt;element name="benutzername" type="{http://www.w3.org/2001/XMLSchema}string"/>
+         *                   &lt;element name="avatar" type="{http://www.w3.org/2001/XMLSchema}anyURI"/>
          *                   &lt;element name="geschrieben_am" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
          *                   &lt;element name="nachricht" type="{http://www.w3.org/2001/XMLSchema}string"/>
          *                 &lt;/sequence>
@@ -851,6 +854,7 @@ public class RezepteType {
              *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
              *       &lt;sequence>
              *         &lt;element name="benutzername" type="{http://www.w3.org/2001/XMLSchema}string"/>
+             *         &lt;element name="avatar" type="{http://www.w3.org/2001/XMLSchema}anyURI"/>
              *         &lt;element name="geschrieben_am" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
              *         &lt;element name="nachricht" type="{http://www.w3.org/2001/XMLSchema}string"/>
              *       &lt;/sequence>
@@ -864,6 +868,7 @@ public class RezepteType {
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
                 "benutzername",
+                "avatar",
                 "geschriebenAm",
                 "nachricht"
             })
@@ -871,6 +876,9 @@ public class RezepteType {
 
                 @XmlElement(required = true)
                 protected String benutzername;
+                @XmlElement(required = true)
+                @XmlSchemaType(name = "anyURI")
+                protected String avatar;
                 @XmlElement(name = "geschrieben_am", required = true)
                 @XmlSchemaType(name = "dateTime")
                 protected XMLGregorianCalendar geschriebenAm;
@@ -899,6 +907,30 @@ public class RezepteType {
                  */
                 public void setBenutzername(String value) {
                     this.benutzername = value;
+                }
+
+                /**
+                 * Ruft den Wert der avatar-Eigenschaft ab.
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link String }
+                 *     
+                 */
+                public String getAvatar() {
+                    return avatar;
+                }
+
+                /**
+                 * Legt den Wert der avatar-Eigenschaft fest.
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link String }
+                 *     
+                 */
+                public void setAvatar(String value) {
+                    this.avatar = value;
                 }
 
                 /**

@@ -85,6 +85,7 @@
                                             <xsd:complexType>
                                                 <xsd:sequence>
                                                     <xsd:element name="benutzername" type="xsd:string"/>
+                                                    <xsd:element name="avatar" type="xsd:anyURI" />
                                                     <xsd:element name="geschrieben_am" type="xsd:dateTime"/>
                                                     <xsd:element name="nachricht" type="xsd:string"/>
                                                 </xsd:sequence>

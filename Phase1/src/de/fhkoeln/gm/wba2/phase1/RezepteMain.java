@@ -3,6 +3,7 @@ package de.fhkoeln.gm.wba2.phase1;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -46,6 +47,21 @@ public class RezepteMain {
         System.out.println(rezept.getRezeptname());
         System.out.println("------------------------");
         System.out.println();
+        
+        
+        ArrayList<RezepteType.Rezept.Fotos.Foto> fotos = (ArrayList<RezepteType.Rezept.Fotos.Foto>) rezept.getFotos().getFoto();
+        
+        System.out.println("Fotos:");
+        if(!fotos.isEmpty()) {
+        	for(RezepteType.Rezept.Fotos.Foto foto: fotos) {
+        		System.out.println("\t" + foto.getBenutzername() + " | " + foto.getAdresse());
+        	}
+        }
+        else {
+        	System.out.println("\t-- Keine Fotos --");
+        }
+        System.out.println();
+        
         
         if(rezept.getArbeitszeit() != null) {
             System.out.print("Arbeitszeit: ");
@@ -101,6 +117,11 @@ public class RezepteMain {
         else {
             for(RezepteType.Rezept.Kommentare.Kommentar kommentar: kommentare) {
                 System.out.println("\tName:\t\t" + kommentar.getBenutzername());
+                System.out.println("\tAvatar:\t\t" + kommentar.getAvatar());
+                
+                Date geschrieben_am = kommentar.getGeschriebenAm().toGregorianCalendar().getTime();
+                
+                System.out.println("\tGeschrieben am:\t" + new SimpleDateFormat("dd.MM.yy HH:mm:ss").format(geschrieben_am));
                 System.out.println("\tNachricht:\t" + kommentar.getNachricht());
                 System.out.println();
             }

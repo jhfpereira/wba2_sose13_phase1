@@ -16,9 +16,6 @@
                 <benutzername>Honigliebe19</benutzername>
                 <adresse>http://www.url.zum/foto3.jpg</adresse>
             </foto>
-            <foto>
-                <adresse>http://www.url.zum/foto4.jpg</adresse>
-            </foto>
         </fotos>
         <arbeitszeit>60</arbeitszeit>
         <schwierigkeitsgrad>normal</schwierigkeitsgrad>
@@ -64,11 +61,13 @@
         <kommentare>
             <kommentar>
                 <benutzername>swieselchen90</benutzername>
+                <avatar>http://www.url.zum/userfoto_swieselchen90.jpg</avatar>
                 <geschrieben_am>2002-02-07T18:49:00.000+01:00</geschrieben_am>
                 <nachricht>Habe....</nachricht>
             </kommentar>
             <kommentar>
                 <benutzername>gartenwiesel</benutzername>
+                <avatar>http://www.url.zum/userfoto_gartenwiesel.jpg</avatar>
                 <geschrieben_am>2002-02-10T19:20:45.000+01:00</geschrieben_am>
                 <nachricht>Ist...</nachricht>
             </kommentar>
