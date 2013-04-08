@@ -234,6 +234,11 @@ Zusätzlich muss, durch die Vorgabe mehrere Rezepte speichern zu können, eine R
 Als eine Restriktion muss definiert werden, dass die Angabe einer negativen Zutatenmengen nicht erlaubt ist. Da die Zutatenmenge nicht immer ganzzahlig sein muss, wurde sich bewusst für den simple-type "decimal" entschieden. Dieser erlaubt aber negative Werte und muss deshalb auf positive Werte begrenzt werden.
 Für die Schwierigkeitsangabe muss ebenfalls eine Restriktion definiert werden, da nur die drei Angaben "simpel", "normal" und "schwer" erlaubt sind.
 
+Es wurde sich dafür entschieden die Grafiken über die Angabe einer URI anzugeben. Somit muss es einen Server geben, der diese Grafiken über die angegebene URI ausliefert.
+Es besteht aber auch zusätzlich die Möglichkeit Grafiken direkt in das XML-Dokument einzubetten. Dazu muss die Grafik die als Binärdatei vorliegt vor in eine Zeichenfolge überführt werden, um sie erfolgreich in das Dokument einbetten zu können. Der Empfänger muss die Zeichenfolge dann nur noch zurück in eine Binärdatei umwandeln.
+Sehr beliebt ist dafür das Base64-Verfahren. Dennoch, mit dem Vorteil Grafiken in XML-Dokumenten einbetten zu können, kommt gleichzeitig auch der Nachteil, dass Dokumente dadurch aufgebläht werden. Es müssen so viel mehr Daten transportiert werden. In Fällen wo eine effiziente und schnelle Übertragung der Daten eine wichtige Voraussetzung ist, fällt das Einbetten von ganzen Grafiken negativ ins Gewicht.
+
+
 
 **d)**
 
