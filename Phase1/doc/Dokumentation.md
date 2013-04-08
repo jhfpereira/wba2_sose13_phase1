@@ -69,6 +69,14 @@ Dabei bietet es sich an eine Web-Adresse anzugeben, die ein Dokument referenzier
 </registrierung>
 ```
 
+Hier ist klar, dass sich der Gruppenleiter von den restlichen Gruppenmitgliedern unterscheidet. Dazu wird für den Gruppenleiter ein Element "gruppenleiter" eingeführt und für die restlichen Personen ein Element "person".
+Eine Besonderheit von einer Gruppe ist die, dass sie sich aus keinen, nur einer oder mehrere Personen zusammensetzen kann. Diese Besonderheit wurde durch die Kapselung der einzelnen "person"-Elemente in einem übergeordneten Element "personen" angegangen. Man hat somit eine Art Container-Element eingeführt, welches keine, nur einen oder mehrere Kindelemente haben kann.  
+Man hätte natürlich auch nur ein Element für den Leiter sowie für weitere Personen einführen können. Dies würde sich auf den ersten Blick auch anbieten, da sie sich an den eingegebenen Daten nicht unterscheiden. Für beide Typen müssen die selben Datenfelder ausgefüllt werden. Zum Unterscheiden würde für das Element dann ein Attribut mit dem Namen "rolle" eingeführt werden.
+Somit könnte dem Attribut für den Gruppenleiter z.B. der Wert "leiter" und alle weiteren Personen der Wert "teilnehmer" zugewiesen werden.
+Bei wenigen Datensätzen würde sich dieser Aufbau sicherlich anbieten, nicht aber bei sehr vielen. Angenommen man hätte sehr viele Gruppenmitglieder eingegeben, würde die Angabe des Attributs mit dem dem Wert "teilnehmer" redundant werden, da das Attribut nur für die Trennung des Leiters von den restlichen Personen eingeführt wurde.
+In der ersten Variante wird dieses Problem gelöst, indem man den Kontext mitberücksichtigt, in welchen sich ein Element befindet.
+Generell wurde zudem darauf verzichtet den Personendatensätzen eindeutige IDs zu vergeben. IDs sollten idealerweise nicht von Clienten sondern nur von dem empfangenden Server vergeben werden.
+
 
 **b)**
 
@@ -104,6 +112,11 @@ Dabei bietet es sich an eine Web-Adresse anzugeben, die ein Dokument referenzier
 		}]
 }
 ```
+
+Für die Abbildung der Daten auf ein JSON-Dokument, wurde sich an das zuvor erstellte XML-Dokument und seiner Struktur orientiert.
+Auch hier wird der Gruppenleiter von allen weiteren Personen durch den Kontext, in welchem sie sich das Element befindet, getrennt.
+Erwähnenswert ist zudem die Entscheidung die Personendatensätze in einem normalen Array aufzulisten. Somit wird die Reihenfolge in welcher die Personen eingetragen wurden beibehalten, was für die weitere Verwertung der Daten evtl. relevant sein könnte.
+Hätte man die Datensätze in einem Objekt (Dictionary) gekapselt, hätte man somit keine wirkliche Reihenfolge mehr.
 
 
 ###Aufgabe 3
@@ -220,6 +233,11 @@ Zusätzlich muss, durch die Vorgabe mehrere Rezepte speichern zu können, eine R
 
 Als eine Restriktion muss definiert werden, dass die Angabe einer negativen Zutatenmengen nicht erlaubt ist. Da die Zutatenmenge nicht immer ganzzahlig sein muss, wurde sich bewusst für den simple-type "decimal" entschieden. Dieser erlaubt aber negative Werte und muss deshalb auf positive Werte begrenzt werden.
 Für die Schwierigkeitsangabe muss ebenfalls eine Restriktion definiert werden, da nur die drei Angaben "simpel", "normal" und "schwer" erlaubt sind.
+
+Es wurde sich dafür entschieden die Grafiken über die Angabe einer URI anzugeben. Somit muss es einen Server geben, der diese Grafiken über die angegebene URI ausliefert.
+Es besteht aber auch zusätzlich die Möglichkeit Grafiken direkt in das XML-Dokument einzubetten. Dazu muss die Grafik die als Binärdatei vorliegt vor in eine Zeichenfolge überführt werden, um sie erfolgreich in das Dokument einbetten zu können. Der Empfänger muss die Zeichenfolge dann nur noch zurück in eine Binärdatei umwandeln.
+Sehr beliebt ist dafür das Base64-Verfahren. Dennoch, mit dem Vorteil Grafiken in XML-Dokumenten einbetten zu können, kommt gleichzeitig auch der Nachteil, dass Dokumente dadurch aufgebläht werden. Es müssen so viel mehr Daten transportiert werden. In Fällen wo eine effiziente und schnelle Übertragung der Daten eine wichtige Voraussetzung ist, fällt das Einbetten von ganzen Grafiken negativ ins Gewicht.
+
 
 
 **d)**
