@@ -213,16 +213,42 @@ Zuletzt kann es zu einem Rezept auch keine Fotos vom fertig gekochten Gericht ge
 
 **c)**
 Zu aller erst sollte ein Entscheidungskriterium eingeführt werden, um besser unterscheiden zu können, ob Daten ihr eigenes Element erhalten, oder in eigenständige Attribute ausgelagert werden.
-Dabei wird einem simplen Prinzip gefolgt. Daten, die für einen Menschen sichtbar/lesbar sein sollen, werden in Elementen geführt. Attribute hingegen werden nur für die Angabe von Metainformationen, wie z.B. zur Identifikation eines Elements, herangezogen.
-Speziell bei der Mengenangabe einer Zutat, könnte man für das Element der Zutatenmenge ein Attribut für die Einheit einführen. Dies wäre sicherlich möglich, da sich die Einheit direkt auf die Menge bezieht und das Element quasi "modifiziert". Dennoch wird sich dafür entschieden die Einheit als eigenständiges Element anzugeben, da es, laut Entscheidungskriterium, um eine Angabe handelt, die der Mensch am Ende sehen/lesen kann. 
+Ein guter Artikel der sich dieser Problematik annimmt ist ["Principles of XML design: When to use elements versus attributes"](http://www.ibm.com/developerworks/xml/library/x-eleatt/index.html). Hier werden einem gute Werkzeuge in die Hand gegeben, um besser entscheiden zu können wie Daten idealerweise "gekapselt" werden sollen.
+Dazu werden konkret vier Prinzipien vorgestellt.  
+
+
+***Principle of core content***  
+Daten, die für die Kommunikation eine wichtige Rolle spielen und auch den wichtigen Inhalt wiederspiegeln, sollten in Elemente gesetzt werden.
+Hingegen sollen Daten, die einer Maschine bei der Verarbeitung der eigentlichen Kommunikationsinformationen dienen, in Attribute platziert werden.  
+
+***Principle of structured information***  
+Für Daten, die einer Struktur folgen, sollten generell in Elemente gekapselt werden.
+Atomare Werte hingegen können sehr gut in Attribute umgesetzt werden. Als konkretes Beispiel wären Datums- und Zeitangaben.  
+
+***Principle of readability***  
+Daten, die von einem Menschen verarbeitbar sein sollen, werden in Elementen geführt. Attribute hingegen werden nur für Daten herangezogen, die von Maschinen gelesen/interpretiert werden.  
+
+"***Principle of element/attribute binding***"  
+Elemente werden verwendet, wenn der enthaltene Wert (Daten) durch ein Attribut "modifiziert" wird oder eine Eigenschaft dieses Werts wiederspiegelt.  
+
+
+Bezogen auf die Rezeptesammlung, speziell auf die Zutaten, würde man für die Mengenangabe ein Element einführen und die Einheitsangaben als Attribut angeben.
+Hier haben wir eine Situation wo das Prinzip der Elementen-/Attributenbindung (Principle of element/attribute binding) eingesetzt werden kann.
+Die Einheitsangabe bezieht sich direkt auf die angegebene Menge. Somit haben wir eine Modifizierung eines Wertes.  
+
+Diese vier Prinzipien müssen nicht für sich alleine angewandt werden. In einigen Fällen müssen sie auch miteinander kombiniert werden um dadurch einen guten Kompromiss zu bilden.  
+
+Schwieriger ist die Entscheidung, wie mit Grafik-URIs umgegangen werden soll. Hierfür kann man sich z.B. XHTML etwas genauer ansehen. Hier gibt es das Element "img". Dort wird die Quelladresse einer Grafik über das Attribut "src" angegeben und wird nicht etwa zwischen Start- und End-Tag angegeben.  
+
 
 Alle Daten sind grundsätzlich auf schon vordefinierte simple-types abbildbar. 
 
 **string** => Rezeptname, Zubereitungsanweisung, Kommentartext, Benutzername, Zutatenname, Einheit  
 **dateTime** => Verfassungszeitpunkt (Kommentare)  
 **positiveInteger** => Arbeitszeit, Koch-Back-Zeit, Ruhezeit, Brennwert und Portionen  
-**anyURI** => Grafikadressen (Fotos)  
+**anyURI** => Grafikadressen (Fotos und Avatare) 
 **decimal** => Zutatenmenge  
+
 
 Bezüglich der Angaben über die Arbeitszeit, Koch-Back-Zeit, Ruhezeit und der Brennwert muss zudem beachtet werden, dass sie nicht unbedingt angegeben sein müssen.
 
@@ -237,6 +263,7 @@ Für die Schwierigkeitsangabe muss ebenfalls eine Restriktion definiert werden, 
 Es wurde sich dafür entschieden die Grafiken über die Angabe einer URI anzugeben. Somit muss es einen Server geben, der diese Grafiken über die angegebene URI ausliefert.
 Es besteht aber auch zusätzlich die Möglichkeit Grafiken direkt in das XML-Dokument einzubetten. Dazu muss die Grafik die als Binärdatei vorliegt vor in eine Zeichenfolge überführt werden, um sie erfolgreich in das Dokument einbetten zu können. Der Empfänger muss die Zeichenfolge dann nur noch zurück in eine Binärdatei umwandeln.
 Sehr beliebt ist dafür das Base64-Verfahren. Dennoch, mit dem Vorteil Grafiken in XML-Dokumenten einbetten zu können, kommt gleichzeitig auch der Nachteil, dass Dokumente dadurch aufgebläht werden. Es müssen so viel mehr Daten transportiert werden. In Fällen wo eine effiziente und schnelle Übertragung der Daten eine wichtige Voraussetzung ist, fällt das Einbetten von ganzen Grafiken negativ ins Gewicht.
+Anstelle des ***anyURI***-Typs muss der ***string***-Typ angegeben werden. Dies hat damit zu tun, dass das base64-Format, wie bereits erwähnt, Binärdaten in Zeichenfolgen überführt und diese Zeichenfolge nicht einem URI-Muster entspricht.
 
 
 

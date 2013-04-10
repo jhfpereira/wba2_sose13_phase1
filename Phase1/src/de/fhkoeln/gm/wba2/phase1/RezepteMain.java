@@ -150,7 +150,8 @@ public class RezepteMain {
         } catch (DatatypeConfigurationException e) {}
 
         kommi.setNachricht(nachricht);
-
+        kommi.setAvatar("http://www.url.zum/userfoto_"+ benutzername.toLowerCase() +".jpg");
+        
         kommentarliste.add(kommi);
     }
     
