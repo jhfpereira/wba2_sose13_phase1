@@ -254,7 +254,9 @@ Die Einheitsangabe bezieht sich direkt auf die angegebene Menge. Somit haben wir
 
 Diese vier Prinzipien müssen nicht für sich alleine angewandt werden. In einigen Fällen müssen sie auch miteinander kombiniert werden um dadurch einen guten Kompromiss zu bilden.  
 
-Schwieriger ist die Entscheidung, wie mit Grafik-URIs umgegangen werden soll. Hierfür kann man sich z.B. XHTML etwas genauer ansehen. Hier gibt es das Element "img". Dort wird die Quelladresse einer Grafik über das Attribut "src" angegeben und wird nicht etwa zwischen Start- und End-Tag angegeben.  
+Schwieriger ist die Entscheidung, wie mit Grafik-URIs umgegangen werden soll. Hierfür kann man sich z.B. XHTML etwas genauer ansehen. Hier gibt es das Element "img". Dort wird die Quelladresse einer Grafik über das Attribut "src" angegeben und wird nicht etwa zwischen Start- und End-Tag angegeben.
+Man muss sich aber überlegen, ob es wirklich günstig wäre diese Umsetzungsart so zu adaptieren. Zumal zu einem Foto nicht nur die Adresse gehört, sondern auch die Information über den Benutzer der das Foto erstellt und hochgeladen hat. Diesen sollte man nicht unbedingt in einen Attribut umsetzen, da dieser evtl. nicht atomar sein könnte.
+Man hätte eine Mischstruktur. Um diese aufzulösen wird die URI einer Grafik in das "foto"-Element hineingezogen und erhält sein eigenes Element. Hier musste ein Kompromiss eingegangen werden, was bedeutet, dass z.B. das Prinzip der Lesbarkeit (Principle of readability) nicht komplett angewandt werden kann.
 
 
 Alle Daten sind grundsätzlich auf schon vordefinierte simple-types abbildbar. 
@@ -289,8 +291,11 @@ Anstelle des **anyURI**-Typs muss der **string**-Typ angegeben werden. Dies hat 
 **d)**
 
 siehe  - [misc/aufgabe3d.xsd](https://github.com/jhfpereira/wba2_sose13_phase1/blob/master/Phase1/misc/aufgabe3d.xsd "XML Schema Definition") -
-	u. - [misc/aufgabe3d.xsd](https://github.com/jhfpereira/wba2_sose13_phase1/blob/master/Phase1/misc/aufgabe3d.xml "XML Dokument - Rezepte") -
+	u. - [misc/aufgabe3d.xsd](https://github.com/jhfpereira/wba2_sose13_phase1/blob/master/Phase1/misc/aufgabe3d.xml "XML Dokument - Rezepte") -  
 
+
+Zum Beispieldokument mit den Rezepten muss erwähnt werden, dass kein Namespace verwendet wurde. Es wurde sich dafür entschieden kein Namespace anzugeben bzw. einzuführen, um das Beispiel klein un übersichtlich zu halten.
+Da aber der Pfad zum Schema angegeben werden soll, damit evtl. Validatoren sich auf das Schema beziehen können, musste anstelle des Attributs "xsi:schemaLocation" das Attribut "noNamespaceSchemaLocation" verwendet werden. Dieses Attribut ermöglicht die Angabe des Pfades zum Schema ohne die zusätzliche Angabe eines Namespaces, welches wie bereits erwähnt nicht verwendet wird.
 
 
 ###Aufgabe 4
@@ -327,4 +332,13 @@ Im Vergleich zu JSON besitzen XML-Dokumente einen sehr hohen Overhead, was sich 
 Über den Tagnamen ist für einen Menschen klarer, was ein Wert verdeutlichen soll. Das XML-Format ist im Vergleich zu JSON zudem flexibler (Attribute, Kommentare, Verarbeitungsanweisungen). JSON folgt da mehr dem Key-Value-Prinzip, wobei aus der Angabe des Werts auch direkt sein Typ ersichtlich ist, da JSON nur eine kleine Auswahl an elementaren Datentypen vorsieht.  
 Durch diese Begrenzung auf feste elementare Datentypen ist JSON, im Gegensatz zu XML, weniger komplex. Dies ermöglicht ein besseres Handhaben der Daten, aber viel wichtiger noch, das schnellere und leichtgewichtigere Parsen eines JSON-Dokuments bzw. der Abbildung der Daten auf native Datentypen und Datenstrukturen einer Programmier- oder Interpretersprache (als Beispiel seien assoziative und numerische Arrays genannt).  
 Im Bereich der Webentwicklung ist ein Trend erkennbar, in dem weniger auf XML, dafür verstärkt auf JSON gesetzt wird. Dies ist mit dem durch XML angelasteten Nachteil des immensen Datenoverhead zu begründen. JSON ist simpler, kompakter in der Strukturierungsweise, somit kleiner in der Datengröße und bietet sich dadurch für APIs geradezu bestens an.
-XML verwendet man speziell in Fällen, wo es besserer Datenkontrolle bedarf.
+XML verwendet man speziell in Fällen, wo es besserer Datenkontrolle bedarf.  
+
+
+###Nachüberlegungen
+
+Im Nachhinein betrachtet stellt man fest, dass einem die Datenmodellierung viele Möglichkeiten bietet eine Struktur auf mehrere Arten umzusetzen. Dabei muss es nicht immer die **richtige** Strukturart geben. Jede Entscheidung die man beim Modellieren trifft, kann in bestimmten Fällen sehr vorteilhaft sein, aber sich in anderen auch komplett erschwerend auswirken. Dazu sei die das immer wieder aufkommende Problem zu nennen, ob Daten eher in ein Attribut gehören, oder doch ihr eigenes Element verdienen.  
+Ein weiterer erwähnenswerter Punkt wäre die Verwendung von JAXB zu nennen. Dadurch, dass die Generierung der Klassendateien aus dem angefertigten Schema über die Konsole per **xjc** durchgeführt wurde, führte dies im Programmierteil der Phase 1 zu kleinen Überraschungen. **xjc** erzeugte zur Klassendatei des Wurzelelements bzw. des Typs dessen, keine hilfreiche Java-Annotation die die Klasse als XmlRootElement auszeichnete. Dies führte dazu, dass beim **marshallen** sowie **unmashallen** das Wurzelelement nicht erkannt wurde und somit das Programm mit einer Fehlernachricht abbrach.
+Nach intensiven Recherchen im Internet stellte man fest, dass dieses Problem mit der in Eclipse Java-Enterprise-Edition integrierten Generierung der Klassendateien aus dem Schema nicht auf dieses Problem stößt, da die nötige Annotation richtig erzeugt wird. Im Nachhinein gelag es mir auch ohne die hilfreiche Annotation, bezüglich des XmLRootElements, dem Mashaller das Wurzelelement bekannt zu machen.  
+Wenn ich die Phase 1 erneut machen müsste, dann wüsste ich jetzt, wie ich sie am besten hätte angehen sollen. Ich hätte zum einen von Anfang an Eclipse JEE eingesetzt, um das recht lästige Generieren der Klassendateien aus dem Schema nicht mehr über die Konsole machen zu müssen. Zum anderen würde ich einen leicht anderen Weg bei der Strukturierung des Schemas gehen. Das Schema mit seinen complex-types würde ich modularer aufbauen, um es ggf. besser erweitern zu können. Speziell in Fällen wo ein complex-type mehrmals Verwendung finden kann, ist ein verschachteltet Strukturaufbau weniger sinnvoll und kann das Schema unnötig aufblähen. 
+
