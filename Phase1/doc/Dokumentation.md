@@ -196,7 +196,10 @@ Hätte man die Datensätze in einem Objekt (Dictionary) gekapselt, hätte man so
 		</zutat>
 		<zutat>
 			<name>Eier</name>
-			<menge>4</menge>
+			<menge>
+			    <zaehler>4</zaehler>
+                <nenner>1</nenner>
+			</menge>
 		</zutat>
 	</zutaten>
 	<zubereitung>Butter und Schokolade im Wasserbad schmelzen. Eier...</zubereitung>
@@ -241,7 +244,7 @@ Atomare Werte hingegen können sehr gut in Attribute umgesetzt werden. Als konkr
 ***Principle of readability***  
 Daten, die von einem Menschen verarbeitbar sein sollen, werden in Elementen geführt. Attribute hingegen werden nur für Daten herangezogen, die von Maschinen gelesen/interpretiert werden.  
 
-"***Principle of element/attribute binding***"  
+***Principle of element/attribute binding***  
 Elemente werden verwendet, wenn der enthaltene Wert (Daten) durch ein Attribut "modifiziert" wird oder eine Eigenschaft dieses Werts wiederspiegelt.  
 
 
@@ -256,7 +259,7 @@ Schwieriger ist die Entscheidung, wie mit Grafik-URIs umgegangen werden soll. Hi
 
 Alle Daten sind grundsätzlich auf schon vordefinierte simple-types abbildbar. 
 
-**string** => Rezeptname, Zubereitungsanweisung, Kommentartext, Benutzername, Zutatenname, Einheit  
+**string** => Rezeptname, Beschreibung, Zubereitungsanweisung, Kommentartext, Benutzername, Zutatenname, Einheit  
 **dateTime** => Verfassungszeitpunkt (Kommentare)  
 **positiveInteger** => Arbeitszeit, Koch-Back-Zeit, Ruhezeit, Brennwert und Portionen  
 **anyURI** => Grafikadressen (Fotos und Avatare) 
@@ -270,16 +273,16 @@ Dazu gehört die Fotoliste, die Zutatenliste und die Kommentarliste.
 Zusätzlich muss, durch die Vorgabe mehrere Rezepte speichern zu können, eine Rezeptliste berücksichtigt werden. Da diesem Element kein weiteres Element übergeordnet ist, kann es als Wurzelelement in Betracht gezogen werden. 
 
 Ein weiterer besondere Einsatz eines complex-types findet man zudem in der Mengenangabe einer Zutat.
-Um auch Brüche wie z.B. "1/2" zu ermöglichen und nicht dafür den unpraktischen ***decimal***-Typ zu verwenden, wurde für die Menge ein "zaehler"- sowie ein "nenner"-Element eingeführt.
-Bei Ganzzahligen Werten enthält das "nenner"-Element den Wert 1. Es wird somit kein Bruch ausgegeben, sondern nur noch alleine der Wert des Zählers. Wobei mit der Vergabe des ***positiveInteger***-Typs dafür gesorgt wurde, dass keins der beiden Elemente einen negativen Wert enthält.
-Eine weitere Möglichkeit wäre, wie kurz erwähnt, die Verwendung des ***decimal***-Typs. Hier müsste aber eine Restriktion eingeführt werden, um die Werte nur auf positive Zahlen zu beschränken, da der ***decimal***-Typ auch negative Zahlen erlaubt.
+Um auch Brüche wie z.B. "1/2" zu ermöglichen und nicht dafür den unpraktischen **decimal**-Typ zu verwenden, wurde für die Menge ein "zaehler"- sowie ein "nenner"-Element eingeführt.
+Bei Ganzzahligen Werten enthält das "nenner"-Element den Wert 1. Es wird somit kein Bruch ausgegeben, sondern nur noch alleine der Wert des Zählers. Wobei mit der Vergabe des **positiveInteger**-Typs dafür gesorgt wurde, dass keins der beiden Elemente einen negativen Wert enthält.
+Eine weitere Möglichkeit wäre, wie kurz erwähnt, die Verwendung des **decimal**-Typs. Hier müsste aber eine Restriktion eingeführt werden, um die Werte nur auf positive Zahlen zu beschränken, da der **decimal**-Typ auch negative Zahlen erlaubt.
 
 Nur für die Schwierigkeitsangabe muss eine Restriktion definiert werden, da nur die drei Angaben "simpel", "normal" und "schwer" erlaubt sein sollen.
 
 Es wurde sich dafür entschieden die Grafiken über die Angabe einer URI anzugeben. Somit muss es einen Server geben, der diese Grafiken über die angegebene URI ausliefert.
 Es besteht aber auch zusätzlich die Möglichkeit Grafiken direkt in das XML-Dokument einzubetten. Dazu muss die Grafik die als Binärdatei vorliegt vor in eine Zeichenfolge überführt werden, um sie erfolgreich in das Dokument einbetten zu können. Der Empfänger muss die Zeichenfolge dann nur noch zurück in eine Binärdatei umwandeln.
 Sehr beliebt ist dafür das Base64-Verfahren. Dennoch, mit dem Vorteil Grafiken in XML-Dokumenten einbetten zu können, kommt gleichzeitig auch der Nachteil, dass Dokumente dadurch aufgebläht werden. Es müssen so viel mehr Daten transportiert werden. In Fällen wo eine effiziente und schnelle Übertragung der Daten eine wichtige Voraussetzung ist, fällt das Einbetten von ganzen Grafiken negativ ins Gewicht.
-Anstelle des ***anyURI***-Typs muss der ***string***-Typ angegeben werden. Dies hat damit zu tun, dass das base64-Format, wie bereits erwähnt, Binärdaten in Zeichenfolgen überführt und diese Zeichenfolge nicht einem URI-Muster entspricht.
+Anstelle des **anyURI**-Typs muss der **string**-Typ angegeben werden. Dies hat damit zu tun, dass das base64-Format, wie bereits erwähnt, Binärdaten in Zeichenfolgen überführt und diese Zeichenfolge nicht einem URI-Muster entspricht.
 
 
 

@@ -67,7 +67,10 @@
 			</zutat>
 			<zutat>
 				<name>Eier</name>
-				<menge>4</menge>
+				<menge>
+				    <zaehler>4</zaehler>
+	                <nenner>1</nenner>
+				</menge>
 			</zutat>
         </zutaten>
         <zubereitung>Butter und Schokolade im Wasserbad schmelzen. Eier...</zubereitung>
