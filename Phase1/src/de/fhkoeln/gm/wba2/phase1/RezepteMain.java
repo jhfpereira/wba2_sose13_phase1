@@ -2,7 +2,7 @@ package de.fhkoeln.gm.wba2.phase1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -38,6 +38,9 @@ public class RezepteMain {
         for (RezepteType.Rezept rezept : list) {
               System.out.println((count++) + ". " + rezept.getRezeptname());
         }
+        
+        System.out.println();
+        System.out.println();
     }
     
     
@@ -48,7 +51,13 @@ public class RezepteMain {
         System.out.println("------------------------");
         System.out.println();
         
-        
+        String beschreibung = rezept.getBeschreibung();
+        if(beschreibung != null && !beschreibung.isEmpty()) {
+        	System.out.println("Beschreibung:");
+        	System.out.println("\t" + beschreibung);
+        	System.out.println();
+        }
+        	
         ArrayList<RezepteType.Rezept.Fotos.Foto> fotos = (ArrayList<RezepteType.Rezept.Fotos.Foto>) rezept.getFotos().getFoto();
         
         System.out.println("Fotos:");
@@ -93,11 +102,22 @@ public class RezepteMain {
         System.out.println("Zutaten: ");
         ArrayList<RezepteType.Rezept.Zutaten.Zutat> zutatenlist = (ArrayList<RezepteType.Rezept.Zutaten.Zutat>) rezept.getZutaten().getZutat();
         for(RezepteType.Rezept.Zutaten.Zutat zutat: zutatenlist) {
-            BigDecimal menge = zutat.getMenge();
-            String einheit = zutat.getEinheit();
+        	
+        	String menge_str = "    ";
+        	
+        	if(zutat.getMenge() != null && zutat.getMenge().getZaehler() != null) {
+        		BigInteger menge_zaehler = zutat.getMenge().getZaehler();
+        		BigInteger menge_nenner = zutat.getMenge().getNenner();
+        		
+        		String menge_nenner_str = ((menge_nenner != null && menge_nenner.intValue() != 1) ? "/"+menge_nenner: "");
+        		
+        		menge_str = menge_zaehler.toString() + menge_nenner_str;
+        	}
+        	
+            String einheit = zutat.getMenge().getEinheit();
             String name = zutat.getName();
             
-            String menge_str = (menge != null) ? menge.toString(): "    ";
+            
             String einheit_str = (einheit != null) ? einheit: "    ";
             
             System.out.println("\t " + menge_str + "\t" + einheit_str + "\t| " + name);

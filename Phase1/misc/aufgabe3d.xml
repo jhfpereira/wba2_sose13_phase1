@@ -3,6 +3,7 @@
          xsi:noNamespaceSchemaLocation="aufgabe3d.xsd">
     <rezept>
         <rezeptname>Lenchen's Schokoladenkuchen</rezeptname>
+        <beschreibung></beschreibung>
         <fotos>
             <foto>
                 <benutzername>Gartenliebe</benutzername>
@@ -22,40 +23,52 @@
         <brennwert>295</brennwert>
         <portionen>16</portionen>
         <zutaten>
-            <zutat>
-                <name>Butter</name>
-                <einheit>g</einheit>
-                <menge>200</menge>
-            </zutat>
-            <zutat>
-                <name>Zucker</name>
-                <einheit>g</einheit>
-                <menge>200</menge>
-            </zutat>
-            <zutat>
-                <name>Schokolade, Blockschokolade</name>
-                <einheit>g</einheit>
-                <menge>200</menge>
-            </zutat>
-            <zutat>
-                <name>Mehl</name>
-                <einheit>g</einheit>
-                <menge>120</menge>
-            </zutat>
-            <zutat>
-                <name>Backpulver</name>
-                <einheit>TL</einheit>
-                <menge>0.5</menge>
-            </zutat>
-            <zutat>
-                <name>Vanillezucker</name>
-                <einheit>Pkt.</einheit>
-                <menge>1</menge>
-            </zutat>
-            <zutat>
-                <name>Eier</name>
-                <menge>4</menge>
-            </zutat>
+			<zutat>
+				<name>Butter</name>
+				<menge einheit="g">
+				    <zaehler>200</zaehler>
+	                <nenner>1</nenner>
+				</menge>
+			</zutat>
+			<zutat>
+				<name>Zucker</name>
+				<menge einheit="g">
+				    <zaehler>200</zaehler>
+	                <nenner>1</nenner>
+				</menge>
+			</zutat>
+			<zutat>
+				<name>Schokolade, Blockschokolade</name>
+				<menge einheit="g">
+				    <zaehler>200</zaehler>
+	                <nenner>1</nenner>
+				</menge>
+			</zutat>
+			<zutat>
+				<name>Mehl</name>
+				<menge einheit="g">
+				    <zaehler>120</zaehler>
+	                <nenner>1</nenner>
+				</menge>
+			</zutat>
+			<zutat>
+				<name>Backpulver</name>
+				<menge einheit="TL">
+				    <zaehler>1</zaehler>
+	                <nenner>2</nenner>
+				</menge>
+			</zutat>
+			<zutat>
+				<name>Vanillezucker</name>
+				<menge einheit="Pkt.">
+				    <zaehler>1</zaehler>
+	                <nenner>1</nenner>
+				</menge>
+			</zutat>
+			<zutat>
+				<name>Eier</name>
+				<menge>4</menge>
+			</zutat>
         </zutaten>
         <zubereitung>Butter und Schokolade im Wasserbad schmelzen. Eier...</zubereitung>
         <kommentare>
@@ -75,6 +88,7 @@
     </rezept>
     <rezept>
         <rezeptname>Schoko-Nuss-Cookies</rezeptname>
+        <beschreibung>Leckere Schoko-Nuss-Cookies für den kleinen Hunger</beschreibung>
         <fotos/>
         <arbeitszeit>50</arbeitszeit>
         <schwierigkeitsgrad>normal</schwierigkeitsgrad>
@@ -82,33 +96,48 @@
         <zutaten>
             <zutat>
                 <name>Butter</name>
-                <einheit>g</einheit>
-                <menge>150</menge>
+                <menge einheit="g">
+                    <zaehler>150</zaehler>
+                    <nenner>1</nenner>
+                </menge>
             </zutat>
             <zutat>
                 <name>Zucker</name>
-                <einheit>g</einheit>
-                <menge>100</menge>
+                <menge einheit="g">
+                    <zaehler>100</zaehler>
+                    <nenner>1</nenner>
+                </menge>
             </zutat>
             <zutat>
                 <name>Rohrzucker</name>
-                <einheit>g</einheit>
-                <menge>100</menge>
+                <menge einheit="g">
+                    <zaehler>100</zaehler>
+                    <nenner>1</nenner>
+                </menge>
             </zutat>
             <zutat>
                 <name>Vanillezucker</name>
-                <einheit>Pkt.</einheit>
-                <menge>1</menge>
+                <menge einheit="Pkt.">
+                    <zaehler>1</zaehler>
+                    <nenner>1</nenner>
+                </menge>
             </zutat>
             <zutat>
                 <name>Salz</name>
-                <einheit>Prise</einheit>
-                <menge>1</menge>
+                <menge einheit="Prise">
+                    <zaehler>1</zaehler>
+                    <nenner>
+                        <zaehler>1</zaehler>
+                    	<nenner>1</nenner>
+                    </nenner>
+                </menge>
             </zutat>
             <zutat>
                 <name>Eier</name>
-                <einheit></einheit>
-                <menge>1</menge>
+                <menge>
+                    <zaehler>1</zaehler>
+                    <nenner>1</nenner>
+                </menge>
             </zutat>
         </zutaten>
         <zubereitung>Nimm das da und mach das dort....</zubereitung>

@@ -15,6 +15,7 @@
                 <xsd:complexType>
                     <xsd:sequence>
                             <xsd:element name="rezeptname" type="xsd:string"/>
+                            <xsd:element name="beschreibung" type="xsd:string"/>
                             <xsd:element name="fotos">
                                 <xsd:complexType>
                                     <xsd:sequence>
@@ -63,13 +64,14 @@
                                             <xsd:complexType>
                                                 <xsd:sequence>
                                                     <xsd:element name="name" type="xsd:string"/>
-                                                    <xsd:element name="einheit" type="xsd:string" minOccurs="0" maxOccurs="1"/>
                                                     <xsd:element name="menge" minOccurs="0" maxOccurs="1">
-                                                        <xsd:simpleType>
-                                                            <xsd:restriction base="xsd:decimal">
-                                                                <xsd:minExclusive value="0"/>
-                                                            </xsd:restriction>
-                                                        </xsd:simpleType>
+                                                        <xsd:complexType>
+                                                        	<xsd:sequence>
+                                                        		<xsd:element name="zaehler" type="xsd:positiveInteger"/>
+                                                        		<xsd:element name="nenner" type="xsd:positiveInteger" />
+                                                        	</xsd:sequence>
+                                                        	<xsd:attribute name="einheit" type="xsd:string"/>
+                                                        </xsd:complexType>
                                                     </xsd:element>
                                                 </xsd:sequence>
                                             </xsd:complexType>

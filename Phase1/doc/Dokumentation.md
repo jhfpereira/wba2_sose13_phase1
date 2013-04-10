@@ -126,6 +126,7 @@ Hätte man die Datensätze in einem Objekt (Dictionary) gekapselt, hätte man so
 <?xml version="1.0" encoding="UTF-8"?>
 <rezept>
 	<rezeptname>Lenchen's Schokoladenkuchen</rezeptname>
+	<beschreibung></beschreibung>
 	<fotos>
 		<foto>
 			<benutzername>Gartenliebe</benutzername>
@@ -153,33 +154,45 @@ Hätte man die Datensätze in einem Objekt (Dictionary) gekapselt, hätte man so
 	<zutaten>
 		<zutat>
 			<name>Butter</name>
-			<menge>200</menge>
-			<einheit>g</einheit>
+			<menge einheit="g">
+			    <zaehler>200</zaehler>
+                <nenner>1</nenner>
+			</menge>
 		</zutat>
 		<zutat>
 			<name>Zucker</name>
-			<menge>200</menge>
-			<einheit>g</einheit>
+			<menge einheit="g">
+			    <zaehler>200</zaehler>
+                <nenner>1</nenner>
+			</menge>
 		</zutat>
 		<zutat>
 			<name>Schokolade, Blockschokolade</name>
-			<menge>200</menge>
-			<einheit>g</einheit>
+			<menge einheit="g">
+			    <zaehler>200</zaehler>
+                <nenner>1</nenner>
+			</menge>
 		</zutat>
 		<zutat>
 			<name>Mehl</name>
-			<menge>120</menge>
-			<einheit>g</einheit>
+			<menge einheit="g">
+			    <zaehler>120</zaehler>
+                <nenner>1</nenner>
+			</menge>
 		</zutat>
 		<zutat>
 			<name>Backpulver</name>
-			<menge>0.5</menge>
-			<einheit>TL</einheit>
+			<menge einheit="TL">
+			    <zaehler>1</zaehler>
+                <nenner>2</nenner>
+			</menge>
 		</zutat>
 		<zutat>
 			<name>Vanillezucker</name>
-			<menge>1</menge>
-			<einheit>Pkt.</einheit>
+			<menge einheit="Pkt.">
+			    <zaehler>1</zaehler>
+                <nenner>1</nenner>
+			</menge>
 		</zutat>
 		<zutat>
 			<name>Eier</name>
@@ -247,7 +260,6 @@ Alle Daten sind grundsätzlich auf schon vordefinierte simple-types abbildbar.
 **dateTime** => Verfassungszeitpunkt (Kommentare)  
 **positiveInteger** => Arbeitszeit, Koch-Back-Zeit, Ruhezeit, Brennwert und Portionen  
 **anyURI** => Grafikadressen (Fotos und Avatare) 
-**decimal** => Zutatenmenge  
 
 
 Bezüglich der Angaben über die Arbeitszeit, Koch-Back-Zeit, Ruhezeit und der Brennwert muss zudem beachtet werden, dass sie nicht unbedingt angegeben sein müssen.
@@ -257,8 +269,12 @@ Auf complex-types müssen zuletzt die Elemente abgebildet werden, die als Contai
 Dazu gehört die Fotoliste, die Zutatenliste und die Kommentarliste.
 Zusätzlich muss, durch die Vorgabe mehrere Rezepte speichern zu können, eine Rezeptliste berücksichtigt werden. Da diesem Element kein weiteres Element übergeordnet ist, kann es als Wurzelelement in Betracht gezogen werden. 
 
-Als eine Restriktion muss definiert werden, dass die Angabe einer negativen Zutatenmengen nicht erlaubt ist. Da die Zutatenmenge nicht immer ganzzahlig sein muss, wurde sich bewusst für den simple-type "decimal" entschieden. Dieser erlaubt aber negative Werte und muss deshalb auf positive Werte begrenzt werden.
-Für die Schwierigkeitsangabe muss ebenfalls eine Restriktion definiert werden, da nur die drei Angaben "simpel", "normal" und "schwer" erlaubt sind.
+Ein weiterer besondere Einsatz eines complex-types findet man zudem in der Mengenangabe einer Zutat.
+Um auch Brüche wie z.B. "1/2" zu ermöglichen und nicht dafür den unpraktischen ***decimal***-Typ zu verwenden, wurde für die Menge ein "zaehler"- sowie ein "nenner"-Element eingeführt.
+Bei Ganzzahligen Werten enthält das "nenner"-Element den Wert 1. Es wird somit kein Bruch ausgegeben, sondern nur noch alleine der Wert des Zählers. Wobei mit der Vergabe des ***positiveInteger***-Typs dafür gesorgt wurde, dass keins der beiden Elemente einen negativen Wert enthält.
+Eine weitere Möglichkeit wäre, wie kurz erwähnt, die Verwendung des ***decimal***-Typs. Hier müsste aber eine Restriktion eingeführt werden, um die Werte nur auf positive Zahlen zu beschränken, da der ***decimal***-Typ auch negative Zahlen erlaubt.
+
+Nur für die Schwierigkeitsangabe muss eine Restriktion definiert werden, da nur die drei Angaben "simpel", "normal" und "schwer" erlaubt sein sollen.
 
 Es wurde sich dafür entschieden die Grafiken über die Angabe einer URI anzugeben. Somit muss es einen Server geben, der diese Grafiken über die angegebene URI ausliefert.
 Es besteht aber auch zusätzlich die Möglichkeit Grafiken direkt in das XML-Dokument einzubetten. Dazu muss die Grafik die als Binärdatei vorliegt vor in eine Zeichenfolge überführt werden, um sie erfolgreich in das Dokument einbetten zu können. Der Empfänger muss die Zeichenfolge dann nur noch zurück in eine Binärdatei umwandeln.

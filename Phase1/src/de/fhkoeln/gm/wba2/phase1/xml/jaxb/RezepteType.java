@@ -2,18 +2,18 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.6 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2013.04.08 um 04:41:12 PM GMT+01:00 
+// Generiert: 2013.04.10 um 08:20:17 PM GMT+01:00 
 //
 
 
 package de.fhkoeln.gm.wba2.phase1.xml.jaxb;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
@@ -36,6 +36,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 &lt;sequence>
  *                   &lt;element name="rezeptname" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *                   &lt;element name="beschreibung" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *                   &lt;element name="fotos">
  *                     &lt;complexType>
  *                       &lt;complexContent>
@@ -97,13 +98,18 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                                     &lt;sequence>
  *                                       &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                                       &lt;element name="einheit" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *                                       &lt;element name="menge" minOccurs="0">
- *                                         &lt;simpleType>
- *                                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}decimal">
- *                                             &lt;minExclusive value="0"/>
- *                                           &lt;/restriction>
- *                                         &lt;/simpleType>
+ *                                         &lt;complexType>
+ *                                           &lt;complexContent>
+ *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                               &lt;sequence>
+ *                                                 &lt;element name="zaehler" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+ *                                                 &lt;element name="nenner" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+ *                                               &lt;/sequence>
+ *                                               &lt;attribute name="einheit" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *                                             &lt;/restriction>
+ *                                           &lt;/complexContent>
+ *                                         &lt;/complexType>
  *                                       &lt;/element>
  *                                     &lt;/sequence>
  *                                   &lt;/restriction>
@@ -202,6 +208,7 @@ public class RezepteType {
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *       &lt;sequence>
      *         &lt;element name="rezeptname" type="{http://www.w3.org/2001/XMLSchema}string"/>
+     *         &lt;element name="beschreibung" type="{http://www.w3.org/2001/XMLSchema}string"/>
      *         &lt;element name="fotos">
      *           &lt;complexType>
      *             &lt;complexContent>
@@ -263,13 +270,18 @@ public class RezepteType {
      *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *                           &lt;sequence>
      *                             &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
-     *                             &lt;element name="einheit" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
      *                             &lt;element name="menge" minOccurs="0">
-     *                               &lt;simpleType>
-     *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}decimal">
-     *                                   &lt;minExclusive value="0"/>
-     *                                 &lt;/restriction>
-     *                               &lt;/simpleType>
+     *                               &lt;complexType>
+     *                                 &lt;complexContent>
+     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                     &lt;sequence>
+     *                                       &lt;element name="zaehler" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+     *                                       &lt;element name="nenner" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+     *                                     &lt;/sequence>
+     *                                     &lt;attribute name="einheit" type="{http://www.w3.org/2001/XMLSchema}string" />
+     *                                   &lt;/restriction>
+     *                                 &lt;/complexContent>
+     *                               &lt;/complexType>
      *                             &lt;/element>
      *                           &lt;/sequence>
      *                         &lt;/restriction>
@@ -317,6 +329,7 @@ public class RezepteType {
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
         "rezeptname",
+        "beschreibung",
         "fotos",
         "arbeitszeit",
         "kochbackzeit",
@@ -332,6 +345,8 @@ public class RezepteType {
 
         @XmlElement(required = true)
         protected String rezeptname;
+        @XmlElement(required = true)
+        protected String beschreibung;
         @XmlElement(required = true)
         protected RezepteType.Rezept.Fotos fotos;
         @XmlSchemaType(name = "positiveInteger")
@@ -376,6 +391,30 @@ public class RezepteType {
          */
         public void setRezeptname(String value) {
             this.rezeptname = value;
+        }
+
+        /**
+         * Ruft den Wert der beschreibung-Eigenschaft ab.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getBeschreibung() {
+            return beschreibung;
+        }
+
+        /**
+         * Legt den Wert der beschreibung-Eigenschaft fest.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setBeschreibung(String value) {
+            this.beschreibung = value;
         }
 
         /**
@@ -1002,13 +1041,18 @@ public class RezepteType {
          *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
          *                 &lt;sequence>
          *                   &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
-         *                   &lt;element name="einheit" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
          *                   &lt;element name="menge" minOccurs="0">
-         *                     &lt;simpleType>
-         *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}decimal">
-         *                         &lt;minExclusive value="0"/>
-         *                       &lt;/restriction>
-         *                     &lt;/simpleType>
+         *                     &lt;complexType>
+         *                       &lt;complexContent>
+         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                           &lt;sequence>
+         *                             &lt;element name="zaehler" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+         *                             &lt;element name="nenner" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+         *                           &lt;/sequence>
+         *                           &lt;attribute name="einheit" type="{http://www.w3.org/2001/XMLSchema}string" />
+         *                         &lt;/restriction>
+         *                       &lt;/complexContent>
+         *                     &lt;/complexType>
          *                   &lt;/element>
          *                 &lt;/sequence>
          *               &lt;/restriction>
@@ -1073,13 +1117,18 @@ public class RezepteType {
              *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
              *       &lt;sequence>
              *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
-             *         &lt;element name="einheit" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
              *         &lt;element name="menge" minOccurs="0">
-             *           &lt;simpleType>
-             *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}decimal">
-             *               &lt;minExclusive value="0"/>
-             *             &lt;/restriction>
-             *           &lt;/simpleType>
+             *           &lt;complexType>
+             *             &lt;complexContent>
+             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                 &lt;sequence>
+             *                   &lt;element name="zaehler" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+             *                   &lt;element name="nenner" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+             *                 &lt;/sequence>
+             *                 &lt;attribute name="einheit" type="{http://www.w3.org/2001/XMLSchema}string" />
+             *               &lt;/restriction>
+             *             &lt;/complexContent>
+             *           &lt;/complexType>
              *         &lt;/element>
              *       &lt;/sequence>
              *     &lt;/restriction>
@@ -1092,15 +1141,13 @@ public class RezepteType {
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
                 "name",
-                "einheit",
                 "menge"
             })
             public static class Zutat {
 
                 @XmlElement(required = true)
                 protected String name;
-                protected String einheit;
-                protected BigDecimal menge;
+                protected RezepteType.Rezept.Zutaten.Zutat.Menge menge;
 
                 /**
                  * Ruft den Wert der name-Eigenschaft ab.
@@ -1127,38 +1174,14 @@ public class RezepteType {
                 }
 
                 /**
-                 * Ruft den Wert der einheit-Eigenschaft ab.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
-                 */
-                public String getEinheit() {
-                    return einheit;
-                }
-
-                /**
-                 * Legt den Wert der einheit-Eigenschaft fest.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
-                 */
-                public void setEinheit(String value) {
-                    this.einheit = value;
-                }
-
-                /**
                  * Ruft den Wert der menge-Eigenschaft ab.
                  * 
                  * @return
                  *     possible object is
-                 *     {@link BigDecimal }
+                 *     {@link RezepteType.Rezept.Zutaten.Zutat.Menge }
                  *     
                  */
-                public BigDecimal getMenge() {
+                public RezepteType.Rezept.Zutaten.Zutat.Menge getMenge() {
                     return menge;
                 }
 
@@ -1167,11 +1190,123 @@ public class RezepteType {
                  * 
                  * @param value
                  *     allowed object is
-                 *     {@link BigDecimal }
+                 *     {@link RezepteType.Rezept.Zutaten.Zutat.Menge }
                  *     
                  */
-                public void setMenge(BigDecimal value) {
+                public void setMenge(RezepteType.Rezept.Zutaten.Zutat.Menge value) {
                     this.menge = value;
+                }
+
+
+                /**
+                 * <p>Java-Klasse für anonymous complex type.
+                 * 
+                 * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
+                 * 
+                 * <pre>
+                 * &lt;complexType>
+                 *   &lt;complexContent>
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *       &lt;sequence>
+                 *         &lt;element name="zaehler" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+                 *         &lt;element name="nenner" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+                 *       &lt;/sequence>
+                 *       &lt;attribute name="einheit" type="{http://www.w3.org/2001/XMLSchema}string" />
+                 *     &lt;/restriction>
+                 *   &lt;/complexContent>
+                 * &lt;/complexType>
+                 * </pre>
+                 * 
+                 * 
+                 */
+                @XmlAccessorType(XmlAccessType.FIELD)
+                @XmlType(name = "", propOrder = {
+                    "zaehler",
+                    "nenner"
+                })
+                public static class Menge {
+
+                    @XmlElement(required = true)
+                    @XmlSchemaType(name = "positiveInteger")
+                    protected BigInteger zaehler;
+                    @XmlElement(required = true)
+                    @XmlSchemaType(name = "positiveInteger")
+                    protected BigInteger nenner;
+                    @XmlAttribute(name = "einheit")
+                    protected String einheit;
+
+                    /**
+                     * Ruft den Wert der zaehler-Eigenschaft ab.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link BigInteger }
+                     *     
+                     */
+                    public BigInteger getZaehler() {
+                        return zaehler;
+                    }
+
+                    /**
+                     * Legt den Wert der zaehler-Eigenschaft fest.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link BigInteger }
+                     *     
+                     */
+                    public void setZaehler(BigInteger value) {
+                        this.zaehler = value;
+                    }
+
+                    /**
+                     * Ruft den Wert der nenner-Eigenschaft ab.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link BigInteger }
+                     *     
+                     */
+                    public BigInteger getNenner() {
+                        return nenner;
+                    }
+
+                    /**
+                     * Legt den Wert der nenner-Eigenschaft fest.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link BigInteger }
+                     *     
+                     */
+                    public void setNenner(BigInteger value) {
+                        this.nenner = value;
+                    }
+
+                    /**
+                     * Ruft den Wert der einheit-Eigenschaft ab.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link String }
+                     *     
+                     */
+                    public String getEinheit() {
+                        return einheit;
+                    }
+
+                    /**
+                     * Legt den Wert der einheit-Eigenschaft fest.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link String }
+                     *     
+                     */
+                    public void setEinheit(String value) {
+                        this.einheit = value;
+                    }
+
                 }
 
             }
