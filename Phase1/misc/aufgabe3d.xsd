@@ -68,7 +68,7 @@
                                                         <xsd:complexType>
                                                         	<xsd:sequence>
                                                         		<xsd:element name="zaehler" type="xsd:positiveInteger"/>
-                                                        		<xsd:element name="nenner" type="xsd:positiveInteger" />
+                                                        		<xsd:element name="nenner" type="xsd:positiveInteger" minOccurs="0" maxOccurs="1" />
                                                         	</xsd:sequence>
                                                         	<xsd:attribute name="einheit" type="xsd:string"/>
                                                         </xsd:complexType>

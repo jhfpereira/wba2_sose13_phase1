@@ -2,7 +2,7 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.6 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2013.04.10 um 08:20:17 PM GMT+01:00 
+// Generiert: 2013.04.11 um 04:52:54 PM GMT+01:00 
 //
 
 
@@ -104,7 +104,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                                               &lt;sequence>
  *                                                 &lt;element name="zaehler" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
- *                                                 &lt;element name="nenner" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+ *                                                 &lt;element name="nenner" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" minOccurs="0"/>
  *                                               &lt;/sequence>
  *                                               &lt;attribute name="einheit" type="{http://www.w3.org/2001/XMLSchema}string" />
  *                                             &lt;/restriction>
@@ -276,7 +276,7 @@ public class RezepteType {
      *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *                                     &lt;sequence>
      *                                       &lt;element name="zaehler" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
-     *                                       &lt;element name="nenner" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+     *                                       &lt;element name="nenner" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" minOccurs="0"/>
      *                                     &lt;/sequence>
      *                                     &lt;attribute name="einheit" type="{http://www.w3.org/2001/XMLSchema}string" />
      *                                   &lt;/restriction>
@@ -1047,7 +1047,7 @@ public class RezepteType {
          *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
          *                           &lt;sequence>
          *                             &lt;element name="zaehler" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
-         *                             &lt;element name="nenner" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+         *                             &lt;element name="nenner" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" minOccurs="0"/>
          *                           &lt;/sequence>
          *                           &lt;attribute name="einheit" type="{http://www.w3.org/2001/XMLSchema}string" />
          *                         &lt;/restriction>
@@ -1123,7 +1123,7 @@ public class RezepteType {
              *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
              *                 &lt;sequence>
              *                   &lt;element name="zaehler" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
-             *                   &lt;element name="nenner" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+             *                   &lt;element name="nenner" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" minOccurs="0"/>
              *                 &lt;/sequence>
              *                 &lt;attribute name="einheit" type="{http://www.w3.org/2001/XMLSchema}string" />
              *               &lt;/restriction>
@@ -1209,7 +1209,7 @@ public class RezepteType {
                  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
                  *       &lt;sequence>
                  *         &lt;element name="zaehler" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
-                 *         &lt;element name="nenner" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+                 *         &lt;element name="nenner" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" minOccurs="0"/>
                  *       &lt;/sequence>
                  *       &lt;attribute name="einheit" type="{http://www.w3.org/2001/XMLSchema}string" />
                  *     &lt;/restriction>
@@ -1229,7 +1229,6 @@ public class RezepteType {
                     @XmlElement(required = true)
                     @XmlSchemaType(name = "positiveInteger")
                     protected BigInteger zaehler;
-                    @XmlElement(required = true)
                     @XmlSchemaType(name = "positiveInteger")
                     protected BigInteger nenner;
                     @XmlAttribute(name = "einheit")

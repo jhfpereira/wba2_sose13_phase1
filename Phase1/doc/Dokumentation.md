@@ -276,7 +276,7 @@ Zusätzlich muss, durch die Vorgabe mehrere Rezepte speichern zu können, eine R
 
 Ein weiterer besondere Einsatz eines complex-types findet man zudem in der Mengenangabe einer Zutat.
 Um auch Brüche wie z.B. "1/2" zu ermöglichen und nicht dafür den unpraktischen **decimal**-Typ zu verwenden, wurde für die Menge ein "zaehler"- sowie ein "nenner"-Element eingeführt.
-Bei Ganzzahligen Werten enthält das "nenner"-Element den Wert 1. Es wird somit kein Bruch ausgegeben, sondern nur noch alleine der Wert des Zählers. Wobei mit der Vergabe des **positiveInteger**-Typs dafür gesorgt wurde, dass keins der beiden Elemente einen negativen Wert enthält.
+Bei Mengenangaben die keinen Bruch darstellen, enthält das "nenner"-Element den Wert 1 oder das "nenner"-Element existiert nicht. Es wird somit kein Bruch ausgegeben, sondern nur noch alleine der Wert des Zählers. Wobei mit der Vergabe des **positiveInteger**-Typs dafür gesorgt wurde, dass keins der beiden Elemente einen negativen Wert enthält.
 Eine weitere Möglichkeit wäre, wie kurz erwähnt, die Verwendung des **decimal**-Typs. Hier müsste aber eine Restriktion eingeführt werden, um die Werte nur auf positive Zahlen zu beschränken, da der **decimal**-Typ auch negative Zahlen erlaubt.
 
 Nur für die Schwierigkeitsangabe muss eine Restriktion definiert werden, da nur die drei Angaben "simpel", "normal" und "schwer" erlaubt sein sollen.
