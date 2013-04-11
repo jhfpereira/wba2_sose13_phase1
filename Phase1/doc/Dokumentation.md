@@ -219,7 +219,7 @@ Hätte man die Datensätze in einem Objekt (Dictionary) gekapselt, hätte man so
 ```
 
 **b)**
-Alle Rezepte haben immer einen Namen, eine Zutatenliste mit mindestens einer Zutat, eine Zubereitungsanleitung und eine Liste von Kommentaren.
+Alle Rezepte haben immer einen Namen, eine kleine Bescheibung, eine Zutatenliste mit mindestens einer Zutat, eine Zubereitungsanleitung und eine Liste von Kommentaren.
 Rezepte unterscheiden sich zum einen bei den Zutaten, genauer den Mengeneinheiten. Die Angaben sind nicht immer in Gramm und können manchmal sogar nicht einmal in Gramm angegeben sein. In einigen wenigen Fällen entfällt sogar die Einheiten- und die Mengenangabe komplett. Zutaten können auch als optional gekennzeichnet sein.
 Bezüglich der Zutatenliste ist zusätzlich anzumerken, dass nicht alle Gerichte die selbe Anzahl an Zutaten hat.
 Für den Zubereitungsvorgang kann eine ungefähre Zeitdauer angegeben werden, wobei das in Punkt a) entwickelte XML-Dokument davon ausgeht, dass eine Ganzzahl angegeben wird, die die Zubereitungszeit exakt in Minuten bestimmt.
