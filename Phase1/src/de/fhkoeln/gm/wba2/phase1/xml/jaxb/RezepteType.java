@@ -6,7 +6,7 @@
 //
 
 
-package generated;
+package de.fhkoeln.gm.wba2.phase1.xml.jaxb;
 
 import java.math.BigInteger;
 import java.util.ArrayList;

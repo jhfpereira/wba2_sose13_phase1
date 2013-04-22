@@ -6,7 +6,7 @@
 //
 
 
-package generated;
+package de.fhkoeln.gm.wba2.phase1.xml.jaxb;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
