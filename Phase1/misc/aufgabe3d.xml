@@ -129,10 +129,7 @@
                 <name>Salz</name>
                 <menge einheit="Prise">
                     <zaehler>1</zaehler>
-                    <nenner>
-                        <zaehler>1</zaehler>
-                    	<nenner>1</nenner>
-                    </nenner>
+                    <nenner>1</nenner>
                 </menge>
             </zutat>
             <zutat>

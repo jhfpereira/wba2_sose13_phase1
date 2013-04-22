@@ -42,7 +42,7 @@
                                     </xsd:restriction>
                                 </xsd:simpleType>
                             </xsd:element>
-                            <xsd:element name="brennwert">
+                            <xsd:element name="brennwert" minOccurs="0" maxOccurs="1">
                                 <xsd:simpleType>
                                     <xsd:union>
                                         <xsd:simpleType>
