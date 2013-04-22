@@ -8,17 +8,16 @@ Jorge H. F. Pereira
 ##Aufgaben
 ###Aufgabe 1
 **Wohlgeformtheit**  
-Der Aufbau des XML-Dokuments ist entscheident. Elemente sollten geschickt in anderen Elementen verschachtelt werden so, dass ein semantisch korrekter Aufbau entsteht.
-Als Beispiel sei eine Liste von Personen zu nennen. Es kann ein Element mit dem Typ/Namen "PersonsList" geben, welches als Wrapper-Element fungiert und mehrere Kindelemte vom Typ/Namen "Person" führt.
-Dabei ist wichtig festzulegen, dass nur Elemente vom Typ/Namen "Person" als Kindelemente akzeptiert werden, da sonst bei anderen Elemententypen die Bedeutung des Wrapper-Elements verloren geht. Nämlich die, dass das Element eine Liste eines bestimmten Typs ist.
-Als weitere Beispiel für Wohlgeformtheit ist die Existenz von nur einem Wurzelknoten.
+Ein XML-Dokument ist wohlgeformt, wenn es klaren feststehenden Regeln folgt. Zum einen darf ein XML-Dokument immer nur ein Wurzelknoten besitzen. Desweiteren müssen geöffnete Elemente, die einen Inhalt besitzen, auch wieder mit einem Tag geschlossen werden.
+Speziell für Attribute gilt, dass ein Element keine doppelten Attribute mit dem selben Namen besitzen dürfen. Wäre dies gegeben, dann könne nicht eindeutig auf einen Wert zugegriffen werden bzw. könnte sich der Parser nicht zwischen beiden glachnamigen Attributen entscheiden.
+Ein sehr wichtiger Punkt, wenn man mit XML-Dokumenten arbeitet ist der, dass stark auf Klein- und Großschreibung geachtet wird. Ein Elementbezeichner der komplett großgeschrieben ist, ist nicht identisch zu einem Bezeichner, der komplett kleingeschrieben ist.
 
 **Validität**  
 Das XML-Dokument ist syntaktisch korrekt aufgebaut und folgt zuvor festgelegten Regeln und Definitionen. Dazu wird das Dokument auf die von einer Grammatik beschriebenen Form überprüft.
 
 **Namespaces**  
 Namespaces werden eingesetzt, um eventuelle Namenskonflikte zu vermeiden, wenn man mit XML-Dokumenten unterschiedlicher Herkunft arbeitet bzw. diese verarbeitet.
-Jedem Element kann dabei ein "prefix" gegeben werden, klar getrennt mit einem Doppelpunkt.
+Jedem Element kann dabei ein Prefix gegeben werden, klar getrennt mit einem Doppelpunkt.
 
 Als Beispiel:
 ```
@@ -26,9 +25,10 @@ Als Beispiel:
 </fh:kopf>
 ```
 
-Zusätzlich muss dem Element über das Attribut "xmlns", ebenfalls durch ein Doppelpunkt mit dem verwendeten Namespace-Prefix verbunden, ein eindeutiger Wert zugewiesen werden.
-Dabei bietet es sich an eine Web-Adresse anzugeben, die ein Dokument referenziert, unter dem weitere Informationen bezüglich des Namespaces zu finden sind.
-
+Namespaces erlauben es zudem innerhalb eines Dokuments bestimmten Elementen mehrere Rollen zu verleihen. Ein Element mit dem Bezeicher "body" kann in einem Namespace eine komplett andere Rolle einnehmen, als ein Element mit dem selben Bezeichner aus einem anderen Namespace.
+Generell muss die Verwendung eines Namespaces bekanntgegeben werden. Dies geschieht über das Attribut "xmlns" (Extensible Markup Language Namespace). Hier muss dem Attributbezeichner noch der mit dem Namespace assoziierten Bezeichner angehangen werden. Wie im obigen Beispiel das `xmlns:fh=""`. `fh` ist hier der mit dem Namespace "http://www.fh-koeln.de/definition" assoziierte Bezeichner.
+Alle Elemente die diesen Bezeichner als Prefix verwenden, unterliegen somit dem entsprechenden Namespace. Der Attributwert von `xmlns:fh` muss nicht unbedingt eine URI sein, sondern ein eindeutiger String, um den Namespace von anderen Namespaces zu unterscheiden. Es hat sich aber als sinnvoll herausgestellt eine URI anzugeben, die evtl. auf eine Seite zeigt, die eine vom Menschen lesbare Seite der Definiton des XML-Schemas ausliefert.
+Jedem Element eines XML-Dokuments kann das Attribut `xmlns` verliehen werden. Dies besagt dann aber, dass der angegebene Namespace nur innerhalb des Elements Gültigkeit besitzt, nicht aber übergeordnet.
 
 
 ###Aufgabe 2
